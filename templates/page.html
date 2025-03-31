@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="https://kit.fontawesome.com/ebcc86461e.js" crossorigin="anonymous"></script>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 2em;
+  }
+</style>
+<main>
+  <div>
+    <img src="{{ page.extra.photo }}" alt="{{ page.title }}" />
+  </div>
+  <div>
+    <h2>{{ page.title }}</h2>
+    {{ page.extra.designation }}, {{ page.extra.department }}
+    <hr>
+    {{ page.content | safe }}
+  </div>
+</main>
+
+{% endblock content %}

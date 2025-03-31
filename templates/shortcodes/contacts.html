@@ -1,0 +1,51 @@
+<style>
+div.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+    margin: 1em;
+}
+div.contact dl div {
+    margin-bottom: 0.5em;
+}
+dt {
+display: inline;
+margin-right: 0.5em;
+}
+dd {
+display: inline;
+}
+dd::before {
+content: '';
+}
+</style>
+<div class="contact">
+    <dl>
+        <div>
+            <dt><i class="fa-solid fa-globe"></i></dt>
+            <dd><a href="{{ website }}">{{ website }}</a></dd>
+        </div>
+        <div>
+            <dt><i class="fa-brands fa-wikipedia-w"></i></dt>
+            <dd><a href="https://en.wikipedia.org/{{ wikipedia }}">{{ wikipedia }}</a></dd>
+        </div>
+    </dl>
+    <dl>
+        <div>
+            <dt><i class="fa-brands fa-x-twitter"></i></dt>
+            <dd><a href="https://x.com/{{ x }}">@{{ x }} </dd>
+        </div>
+        <div>
+            <dt><i class="fa-brands fa-facebook"></i></dt>
+            <dd><a href="https://www.facebook.com/{{ facebook }}">{{ facebook }}</a></dd>
+        </div>
+        <div>
+            <dt><i class="fa-brands fa-instagram"></i></dt>
+            <dd><a href="https://www.instagram.com/{{ instagram }}">{{ instagram }}</a></dd>
+        </div>
+        <div>
+            <dt><i class="fa-brands fa-youtube"></i></dt>
+            <dd><a href="https://www.youtube.com/{{ youtube }}">{{ youtube }}</a></dd>
+        </div>
+    </dl>
+</div>
