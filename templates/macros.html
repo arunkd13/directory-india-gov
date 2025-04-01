@@ -1,25 +1,33 @@
+{% macro contacts(contacts) %}
+{% set website = contacts.website %}
+{% set wikipedia = contacts.wikipedia %}
+{% set x = contacts.x %}
+{% set facebook = contacts.facebook %}
+{% set instagram = contacts.instagram %}
+{% set youtube = contacts.youtube %}
+
 <style>
-div.contact {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2em;
-    margin: 1em;
-}
-div.contact dl div {
-    margin-bottom: 0.5em;
-}
-dt {
-display: inline;
-margin-right: 0.5em;
-}
-dd {
-display: inline;
-}
-dd::before {
-content: '';
-}
+  div.contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2em;
+      margin: 1em;
+  }
+  div.contacts dl div {
+      margin-bottom: 0.5em;
+  }
+  dt {
+  display: inline;
+  margin-right: 0.5em;
+  }
+  dd {
+  display: inline;
+  }
+  dd::before {
+  content: '';
+  }
 </style>
-<div class="contact">
+<div class="contacts">
     <dl>
         <div>
             <dt><i class="fa-solid fa-globe"></i></dt>
@@ -27,7 +35,7 @@ content: '';
         </div>
         <div>
             <dt><i class="fa-brands fa-wikipedia-w"></i></dt>
-            <dd><a href="https://en.wikipedia.org/{{ wikipedia }}">{{ wikipedia }}</a></dd>
+            <dd><a href="https://en.wikipedia.org/wiki/{{ wikipedia }}">{{ wikipedia }}</a></dd>
         </div>
     </dl>
     <dl>
@@ -49,3 +57,4 @@ content: '';
         </div>
     </dl>
 </div>
+{% endmacro contacts %}

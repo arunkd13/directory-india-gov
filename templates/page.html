@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% import "macros.html" as macros %}
+
 {% block content %}
 <script src="https://kit.fontawesome.com/ebcc86461e.js" crossorigin="anonymous"></script>
 
@@ -17,7 +20,7 @@
     <h2>{{ page.title }}</h2>
     {{ page.extra.designation }}, {{ page.extra.department }}
     <hr>
-    {{ page.content | safe }}
+    {{ macros::contacts(contacts=page.extra.contacts) }}
   </div>
 </main>
 
