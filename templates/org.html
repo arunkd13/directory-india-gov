@@ -1,0 +1,23 @@
+{% extends "page.html" %}
+
+{% import "macros.html" as macros %}
+
+{% block content %}
+<style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 2em;
+  }
+</style>
+<main>
+  <div>
+    <img src="{{ page.extra.photo }}" alt="{{ page.title }}" />
+  </div>
+  <div>
+    <h2>{{ page.title }}</h2>
+    {{ macros::member(member = page.extra.head) }}
+  </div>
+</main>
+
+{% endblock content %}

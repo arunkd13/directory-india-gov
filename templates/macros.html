@@ -3,7 +3,6 @@
 {% set wikipedia = contacts.wikipedia %}
 {% set x = contacts.x %}
 {% set facebook = contacts.facebook %}
-{% set instagram = contacts.instagram %}
 {% set youtube = contacts.youtube %}
 
 <style>
@@ -16,11 +15,11 @@
   div.contacts dl div {
       margin-bottom: 0.5em;
   }
-  dt {
+  div.contacts dl div dt {
   display: inline;
   margin-right: 0.5em;
   }
-  dd {
+  div.contacts dl div dd {
   display: inline;
   }
   dd::before {
@@ -47,10 +46,13 @@
             <dt><i class="fa-brands fa-facebook"></i></dt>
             <dd><a href="https://www.facebook.com/{{ facebook }}">{{ facebook }}</a></dd>
         </div>
+        {% if instagram %}
+        {% set instagram = contacts.instagram %}
         <div>
             <dt><i class="fa-brands fa-instagram"></i></dt>
             <dd><a href="https://www.instagram.com/{{ instagram }}">{{ instagram }}</a></dd>
         </div>
+        {% endif %}
         <div>
             <dt><i class="fa-brands fa-youtube"></i></dt>
             <dd><a href="https://www.youtube.com/{{ youtube }}">{{ youtube }}</a></dd>
@@ -58,3 +60,47 @@
     </dl>
 </div>
 {% endmacro contacts %}
+
+{% macro links(links) %}
+{% if links.advised_by %}
+{% set advised_by = get_page(path = links.advised_by ~ '.md') %}
+
+<style>
+  div.links {
+    margin: 1em;
+  }
+  div.links dl div {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      column-gap: 1em;
+  }
+  dd::before {
+  content: '';
+  }
+</style>
+<div class="links">
+    <dl>
+        <div>
+            <dt>Advised By</i></dt>
+            <dd><a href="{{ advised_by.path }}">{{ advised_by.title }}</a></dd>
+        </div>
+    </dl>
+</div>
+{% endif %}
+{% endmacro links %}
+
+{% macro photo(url) %}
+<style>
+div.photo {
+    width: 200px;
+}
+</style>
+<div class="photo">
+<img src="{{ page.extra.photo }}" alt="{{ page.title }}" />
+</div>
+{% endmacro photo %}
+
+{% macro member(member) %}
+{% set person = get_page(path = 'person/' ~ member.person ~ '.md') %}
+<a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ member.designation }}
+{% endmacro %}

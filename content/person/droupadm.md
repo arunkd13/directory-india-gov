@@ -13,4 +13,7 @@ facebook = "presidentofindia"
 instagram = "presidentofindia"
 youtube = "presidentofindia"
 wikipedia = "Droupadi_Murmu"
+
+[extra.links]
+advised_by = "org/union-council-of-ministers"
 +++
