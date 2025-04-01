@@ -15,5 +15,5 @@ youtube = "presidentofindia"
 wikipedia = "Droupadi_Murmu"
 
 [extra.links]
-advised_by = "org/union-council-of-ministers"
+adviser = "org/union-council-of-ministers"
 +++

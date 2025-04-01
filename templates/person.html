@@ -6,20 +6,28 @@
 <script src="https://kit.fontawesome.com/ebcc86461e.js" crossorigin="anonymous"></script>
 
 <style>
-  main {
+  main div.info {
     display: grid;
     grid-template-columns: 1fr 3fr;
     column-gap: 2em;
   }
 </style>
 <main>
-  {{ macros::photo(url=page.extra.photo) }}
-  <div>
-    <h2>{{ page.title }}</h2>
-    {{ page.extra.designation }}, {{ page.extra.department }}
-    <hr>
-    {{ macros::contacts(contacts=page.extra.contacts) }}
-    {{ macros::links(links=page.extra.links) }}
+  <div class="info">
+    {{ macros::photo(url=page.extra.photo) }}
+    <div>
+      <h2>{{ page.title }}</h2>
+      {{ page.extra.designation }}, {{ page.extra.department }}
+      <hr>
+      {{ macros::contacts(contacts=page.extra.contacts) }}
+      {{ macros::links(links=page.extra.links) }}
+    </div>
+  </div>
+  <div class="backlinks">
+    <!-- Need to use @ syntax for backlinks to be populated: https://github.com/getzola/zola/issues/2733 -->
+    {% for backlink in page.backlinks %}
+    <a href="{{ backlink.permalink }}">{{ backlink.title }}</a><br>
+    {% endfor %}
   </div>
 </main>
 

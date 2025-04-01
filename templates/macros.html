@@ -1,9 +1,6 @@
 {% macro contacts(contacts) %}
 {% set website = contacts.website %}
 {% set wikipedia = contacts.wikipedia %}
-{% set x = contacts.x %}
-{% set facebook = contacts.facebook %}
-{% set youtube = contacts.youtube %}
 
 <style>
   div.contacts {
@@ -38,14 +35,22 @@
         </div>
     </dl>
     <dl>
+        {% if x %}
+        {% set x = contacts.x %}
         <div>
             <dt><i class="fa-brands fa-x-twitter"></i></dt>
             <dd><a href="https://x.com/{{ x }}">@{{ x }} </dd>
         </div>
+        {% endif %}
+
+        {% if facebook %}
+        {% set facebook = contacts.facebook %}
         <div>
             <dt><i class="fa-brands fa-facebook"></i></dt>
             <dd><a href="https://www.facebook.com/{{ facebook }}">{{ facebook }}</a></dd>
         </div>
+        {% endif %}
+
         {% if instagram %}
         {% set instagram = contacts.instagram %}
         <div>
@@ -53,17 +58,19 @@
             <dd><a href="https://www.instagram.com/{{ instagram }}">{{ instagram }}</a></dd>
         </div>
         {% endif %}
+
+        {% if youtube %}
+        {% set youtube = contacts.youtube %}
         <div>
             <dt><i class="fa-brands fa-youtube"></i></dt>
             <dd><a href="https://www.youtube.com/{{ youtube }}">{{ youtube }}</a></dd>
         </div>
+        {% endif %}
     </dl>
 </div>
 {% endmacro contacts %}
 
 {% macro links(links) %}
-{% if links.advised_by %}
-{% set advised_by = get_page(path = links.advised_by ~ '.md') %}
 
 <style>
   div.links {
@@ -80,13 +87,23 @@
 </style>
 <div class="links">
     <dl>
+        {% if links.adviser %}
+        {% set adviser = get_page(path = links.adviser ~ '.md') %}
         <div>
-            <dt>Advised By</i></dt>
-            <dd><a href="{{ get_url(path=advised_by.path) }}">{{ advised_by.title }}</a></dd>
+            <dt>Adviser</i></dt>
+            <dd><a href="{{ get_url(path=adviser.path) }}">{{ adviser.title }}</a></dd>
         </div>
+        {% endif %}
+
+        {% if links.superior %}
+        {% set superior = get_page(path = links.superior ~ '.md') %}
+        <div>
+            <dt>Superior</i></dt>
+            <dd><a href="{{ get_url(path=superior.path) }}">{{ superior.title }}</a></dd>
+        </div>
+        {% endif %}
     </dl>
 </div>
-{% endif %}
 {% endmacro links %}
 
 {% macro photo(url) %}
