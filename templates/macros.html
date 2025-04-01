@@ -82,7 +82,7 @@
     <dl>
         <div>
             <dt>Advised By</i></dt>
-            <dd><a href="{{ advised_by.path }}">{{ advised_by.title }}</a></dd>
+            <dd><a href="{{ get_url(path=advised_by.path) }}">{{ advised_by.title }}</a></dd>
         </div>
     </dl>
 </div>
@@ -93,10 +93,15 @@
 <style>
 div.photo {
     width: 200px;
+    background-color: aliceblue;
+    padding: 0.75em;
+}
+div.photo img {
+    margin: 0em;
 }
 </style>
 <div class="photo">
-<img src="{{ page.extra.photo }}" alt="{{ page.title }}" />
+<img src="{{ url }}" alt="{{ page.title }}" />
 </div>
 {% endmacro photo %}
 
