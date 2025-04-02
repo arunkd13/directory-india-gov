@@ -71,7 +71,6 @@
 {% endmacro contacts %}
 
 {% macro links(links) %}
-
 <style>
   div.links {
     margin: 1em;
@@ -88,17 +87,17 @@
 <div class="links">
     <dl>
         {% if links.adviser %}
-        {% set adviser = get_page(path = links.adviser ~ '.md') %}
+        {% set adviser = get_page(path = links.adviser[0] ~ '.md') %}
         <div>
             <dt>Adviser</i></dt>
             <dd><a href="{{ get_url(path=adviser.path) }}">{{ adviser.title }}</a></dd>
         </div>
         {% endif %}
 
-        {% if links.superior %}
-        {% set superior = get_page(path = links.superior ~ '.md') %}
+        {% if links.at_the_pleasure_of %}
+        {% set superior = get_page(path = links.at_the_pleasure_of[0] ~ '.md') %}
         <div>
-            <dt>Superior</i></dt>
+            <dt>At the pleasure of</i></dt>
             <dd><a href="{{ get_url(path=superior.path) }}">{{ superior.title }}</a></dd>
         </div>
         {% endif %}
@@ -125,4 +124,8 @@ div.photo img {
 {% macro member(member) %}
 {% set person = get_page(path = 'person/' ~ member.person ~ '.md') %}
 <a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ member.designation }}
-{% endmacro %}
+{% endmacro member %}
+
+{% macro link_person(page) %}
+<a href="{{ page.permalink }}">{{ page.title }}</a>, {{ page.extra.designation }}
+{% endmacro link_page %}

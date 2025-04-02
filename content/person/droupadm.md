@@ -1,6 +1,9 @@
 +++
 title = "Droupadi Murmu"
 
+[taxonomies]
+adviser = ["org/union-council-of-ministers"]
+
 [extra]
 photo = "https://presidentofindia.gov.in/themes/presidentofindia/images/about.jpg"
 designation = "President of India"
@@ -13,7 +16,4 @@ facebook = "presidentofindia"
 instagram = "presidentofindia"
 youtube = "presidentofindia"
 wikipedia = "Droupadi_Murmu"
-
-[extra.links]
-adviser = "org/union-council-of-ministers"
 +++

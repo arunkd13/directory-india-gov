@@ -20,14 +20,20 @@
       {{ page.extra.designation }}, {{ page.extra.department }}
       <hr>
       {{ macros::contacts(contacts=page.extra.contacts) }}
-      {{ macros::links(links=page.extra.links) }}
+      {{ macros::links(links=page.taxonomies) }}
     </div>
   </div>
   <div class="backlinks">
-    <!-- Need to use @ syntax for backlinks to be populated: https://github.com/getzola/zola/issues/2733 -->
-    {% for backlink in page.backlinks %}
-    <a href="{{ backlink.permalink }}">{{ backlink.title }}</a><br>
+    {% set person = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
+    {% set term = get_taxonomy_term(kind="during_the_pleasure_of", term=person, required=false) %}
+    {% if term %}
+    <b>During their pleasure{{ person }} </b>
+    <ul>
+    {% for item in term.pages %}
+      <li>{{ macros::link_person(page=item) }}</li>
     {% endfor %}
+    </ul>
+    {% endif %}
   </div>
 </main>
 
