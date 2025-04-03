@@ -94,11 +94,11 @@
         </div>
         {% endif %}
 
-        {% if links.at_the_pleasure_of %}
-        {% set superior = get_page(path = links.at_the_pleasure_of[0] ~ '.md') %}
+        {% if links.during_the_pleasure_of %}
+        {% set link_page = get_page(path = links.during_the_pleasure_of[0] ~ '.md') %}
         <div>
-            <dt>At the pleasure of</i></dt>
-            <dd><a href="{{ get_url(path=superior.path) }}">{{ superior.title }}</a></dd>
+            <dt>During the pleasure of</i></dt>
+            <dd><a href="{{ link_page.permalink }}">{{ link_page.title }}</a></dd>
         </div>
         {% endif %}
     </dl>
@@ -108,11 +108,11 @@
 {% macro photo(url) %}
 <style>
 div.photo {
-    width: 200px;
     background-color: aliceblue;
     padding: 0.75em;
 }
 div.photo img {
+    width: 200px;
     margin: 0em;
 }
 </style>

@@ -10,14 +10,17 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     column-gap: 2em;
+    margin-bottom: 1em;
   }
 </style>
 <main>
   <div class="info">
-    {{ macros::photo(url=page.extra.photo) }}
+    <div>
+      {{ macros::photo(url=page.extra.photo) }}
+    </div>
     <div>
       <h2>{{ page.title }}</h2>
-      {{ page.extra.designation }}, {{ page.extra.department }}
+      {{ page.extra.designation }}
       <hr>
       {{ macros::contacts(contacts=page.extra.contacts) }}
       {{ macros::links(links=page.taxonomies) }}
@@ -27,7 +30,7 @@
     {% set person = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
     {% set term = get_taxonomy_term(kind="during_the_pleasure_of", term=person, required=false) %}
     {% if term %}
-    <b>During their pleasure{{ person }} </b>
+    <b>During their pleasure</b>
     <ul>
     {% for item in term.pages %}
       <li>{{ macros::link_person(page=item) }}</li>
