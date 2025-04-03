@@ -3,7 +3,7 @@ title = "Droupadi Murmu"
 description = "President of India"
 
 [taxonomies]
-adviser = ["org/union-council-of-ministers"]
+adviser = ["group/union-council-of-ministers"]
 
 [extra]
 photo = "https://presidentofindia.gov.in/themes/presidentofindia/images/about.jpg"

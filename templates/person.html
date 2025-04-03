@@ -1,82 +1,16 @@
 {% extends "page.html" %}
 
-{% import "macros.html" as macros %}
-
-{% block content %}
-<script src="https://kit.fontawesome.com/ebcc86461e.js" crossorigin="anonymous"></script>
-
-<style>
-  div.photo {
-    grid-area: photo;
-  }
-
-  div.title {
-    grid-area: title;
-  }
-
-
-  div.contacts {
-    grid-area: contacts;
-  }
-
-  div.links {
-    grid-area: links;
-  }
-
-  div.backlinks {
-    grid-area: backlinks;
-  }
-
-  main {
-    display: grid;
-    column-gap: 1em;
-    grid-template-areas:
-      "title"
-      "photo"
-      "contacts"
-      "links"
-      "backlinks";
-    margin-bottom: 1em;
-  }
-  @media (min-width: 40em) {
-    main {
-      grid-template-columns: 1fr 3fr;
-      grid-template-rows: min-content min-content 1fr auto;
-      grid-template-areas:
-        "photo title"
-        "photo contacts"
-        "photo links"
-        "backlinks backlinks";
-    }
-  }
-</style>
-<main>
-  <div class="photo">
-    {{ macros::photo(url=page.extra.photo, alt=page.title) }}
-  </div>
-  <div class="title">
-    <h2>{{ page.title }}</h2>
-    {{ page.description }}
-    <hr>
-  </div>
-  <div class="contacts">
-    {{ macros::contacts(contacts=page.extra.contacts) }}
-  </div>
-  <div class="links">
-    {{ macros::links(links=page.taxonomies) }}
-  </div>
-  <div class="backlinks">
-    {% set person = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
-    {% set term = get_taxonomy_term(kind="during_the_pleasure_of", term=person, required=false) %}
-    {% if term %}
-    <b>During their pleasure</b>
-    <ul>
-    {% for item in term.pages %}
-      <li>{{ macros::link_person(page=item) }}</li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-  </div>
-</main>
-
-{% endblock content %}
+{% block backlinks %}
+<div class="backlinks">
+  {% set person = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
+  {% set term = get_taxonomy_term(kind="during_the_pleasure_of", term=person, required=false) %}
+  {% if term %}
+  <b>During their pleasure</b>
+  <ul>
+  {% for item in term.pages %}
+    <li>{{ macros::link_page(page=item) }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endblock backlinks %}

@@ -7,6 +7,7 @@ compile_sass = false
 taxonomies = [
     {name = "adviser"},
     {name = "during_the_pleasure_of"},
+    {name = "head"},
 ]
 
 # Whether to build a search index to be used later on by a JavaScript library
@@ -25,3 +26,8 @@ generate_feeds = false
 
 [extra]
 # Put all your custom variables here
+
+[extra.taxonomy_display_names]
+adviser = "Adviser"
+during_the_pleasure_of = "During the pleasure of"
+head = "Head"

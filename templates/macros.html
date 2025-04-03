@@ -60,36 +60,6 @@
     </dl>
 {% endmacro contacts %}
 
-{% macro links(links) %}
-    <style>
-        dl.link-list div {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            column-gap: 0.5em;
-        }
-        dl.link-list div dd::before {
-            content: '';
-        }
-    </style>
-    <dl class="link-list">
-        {% if links.adviser %}
-        {% set adviser = get_page(path = links.adviser[0] ~ '.md') %}
-        <div>
-            <dt>Adviser</i></dt>
-            <dd><a href="{{ get_url(path=adviser.path) }}">{{ adviser.title }}</a></dd>
-        </div>
-        {% endif %}
-
-        {% if links.during_the_pleasure_of %}
-        {% set link_page = get_page(path = links.during_the_pleasure_of[0] ~ '.md') %}
-        <div>
-            <dt>During the pleasure of</i></dt>
-            <dd><a href="{{ link_page.permalink }}">{{ link_page.title }}</a></dd>
-        </div>
-        {% endif %}
-    </dl>
-{% endmacro links %}
-
 {% macro photo(url, alt) %}
     <style>
         div.photo-bg {
@@ -107,11 +77,20 @@
     </div>
 {% endmacro photo %}
 
-{% macro member(member) %}
-    {% set person = get_page(path = 'person/' ~ member.person ~ '.md') %}
-    <a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ person.description }}
-{% endmacro member %}
+{% macro link_page(page) %}
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+    {% if page.description %}
+     <span>, {{ page.description }}</span>
+    {% endif %}
+{% endmacro link_page %}
 
-{% macro link_person(page) %}
-    <a href="{{ page.permalink }}">{{ page.title }}</a>, {{ page.description }}
-{% endmacro link_person %}
+{% macro display_taxonomy_name(name) %}
+    {{ page.extra.taxonomy_display_names }}
+    {#  #}
+{% endmacro %}
+
+{% macro link_term(term) %}
+    {% set page_path = term ~ '.md' %}
+    {% set page = get_page(path = page_path) %}
+    {{ macros::link_page(page=page) }}
+{% endmacro link_term %}

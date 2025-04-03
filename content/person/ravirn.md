@@ -3,7 +3,7 @@ title = "R. N. Ravi"
 description = "Governor of Tamil Nadu"
 
 [taxonomies]
-adviser = ["org/tn-council-of-ministers"]
+adviser = ["group/tn-council-of-ministers"]
 during_the_pleasure_of = ["person/droupadm"]
 
 [extra]

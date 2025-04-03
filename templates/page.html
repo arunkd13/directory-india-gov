@@ -1,3 +1,87 @@
 {% extends "base.html" %}
+{% import "macros.html" as macros %}
 {% block content %}
+<script src="https://kit.fontawesome.com/ebcc86461e.js" crossorigin="anonymous"></script>
+
+<style>
+  div.photo {
+    grid-area: photo;
+  }
+
+  div.title {
+    grid-area: title;
+  }
+
+  div.contacts {
+    grid-area: contacts;
+  }
+
+  div.links {
+    grid-area: links;
+  }
+
+  div.backlinks {
+    grid-area: backlinks;
+  }
+
+  main {
+    display: grid;
+    column-gap: 1em;
+    grid-template-areas:
+      "title"
+      "photo"
+      "contacts"
+      "links"
+      "backlinks";
+    margin-bottom: 1em;
+  }
+  @media (min-width: 40em) {
+    main {
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: min-content min-content 1fr auto;
+      grid-template-areas:
+        "photo title"
+        "photo contacts"
+        "photo links"
+        "backlinks backlinks";
+    }
+  }
+</style>
+<main>
+  <div class="photo">
+    {{ macros::photo(url=page.extra.photo, alt=page.title) }}
+  </div>
+  <div class="title">
+    <h2>{{ page.title }}</h2>
+    {% if page.description %}
+        {{ page.description }}
+    {% endif %}
+    <hr>
+  </div>
+  <div class="contacts">
+    {{ macros::contacts(contacts=page.extra.contacts) }}
+  </div>
+  <div class="links">
+    <style>
+        dl.link-list div {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 0.5em;
+        }
+        dl.link-list div dd::before {
+            content: '';
+        }
+    </style>
+    <dl class="link-list">
+      {% for name, terms in page.taxonomies %}
+        <div>
+            <dt>{{ config.extra.taxonomy_display_names[name] }} </dt>
+            <dd>{{ macros::link_term(term=terms[0]) }}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </div>
+  {% block backlinks %}
+  {% endblock backlinks %}
+</main>
 {% endblock content %}
