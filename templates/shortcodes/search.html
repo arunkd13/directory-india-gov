@@ -1,0 +1,72 @@
+<script src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+<style>
+    div.search {
+        margin: 2em;
+        display: grid;
+        place-items: center;
+    }
+    div.field label {
+        font-weight: bold;
+        margin-right: 1em;
+    }
+</style>
+<div class="search">
+    <div class="field">
+        <label for="searchField">Search</label>
+        <input type="search" placeholder="Try entering 'droupadm'" id="searchField" />
+    </div>
+
+    <div>
+        <ul id="searchResults" />
+    </div>
+
+    <div id="noResultsFound" style="display: none">
+        <p>No results found.</p>
+    </div>
+</div>
+<script>
+(function (window, document) {
+  "use strict";
+
+  const search = (e) => {
+    const results = window.searchIndex.search(e.target.value, {
+      bool: "OR",
+      expand: true,
+    });
+
+    const resEl = document.getElementById("searchResults");
+    const noResultsEl = document.getElementById("noResultsFound");
+
+    resEl.innerHTML = "";
+    if (results) {
+      noResultsEl.style.display = "none";
+      results.map((r) => {
+        const { id, title, description } = r.doc;
+        const el = document.createElement("li");
+        resEl.appendChild(el);
+
+        const item = document.createElement("item");
+        el.appendChild(item);
+
+        const a = document.createElement("a");
+        a.setAttribute("href", id);
+        a.textContent = title;
+        item.appendChild(a);
+
+        const p = document.createElement("p");
+        p.textContent = description;
+        el.appendChild(p);
+      });
+    } else {
+      noResultsEl.style.display = "block";
+    }
+  };
+
+  fetch("/search_index.en.json").then((response) =>
+    response.json().then((rawIndex) => {
+      window.searchIndex = elasticlunr.Index.load(rawIndex);
+      document.getElementById("searchField").addEventListener("input", search);
+    })
+  );
+})(window, document);
+</script>

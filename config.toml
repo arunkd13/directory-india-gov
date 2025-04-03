@@ -4,13 +4,16 @@ base_url = "https://arunkd13.github.io/directory-india-gov"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
-
 taxonomies = [
     {name = "adviser"},
     {name = "during_the_pleasure_of"},
 ]
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+[search]
+index_format = "elasticlunr_json"
+include_path = true
 
 [markdown]
 # Whether to do syntax highlighting
