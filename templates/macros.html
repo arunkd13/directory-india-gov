@@ -1,30 +1,23 @@
 {% macro contacts(contacts) %}
-{% set website = contacts.website %}
-{% set wikipedia = contacts.wikipedia %}
+    {% set website = contacts.website %}
+    {% set wikipedia = contacts.wikipedia %}
 
-<style>
-  div.contacts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 2em;
-      margin: 1em;
-  }
-  div.contacts dl div {
-      margin-bottom: 0.5em;
-  }
-  div.contacts dl div dt {
-  display: inline;
-  margin-right: 0.5em;
-  }
-  div.contacts dl div dd {
-  display: inline;
-  }
-  dd::before {
-  content: '';
-  }
-</style>
-<div class="contacts">
-    <dl>
+    <style>
+    dl.contact-list div {
+        margin-bottom: 0.5em;
+    }
+    dl.contact-list div dt {
+        display: inline;
+        margin-right: 0.5em;
+    }
+    dl.contact-list div dd {
+        display: inline;
+    }
+    dl.contact-list div dd::before {
+        content: '';
+    }
+    </style>
+    <dl class="contact-list">
         <div>
             <dt><i class="fa-solid fa-globe"></i></dt>
             <dd><a href="{{ website }}">{{ website }}</a></dd>
@@ -33,8 +26,6 @@
             <dt><i class="fa-brands fa-wikipedia-w"></i></dt>
             <dd><a href="https://en.wikipedia.org/wiki/{{ wikipedia }}">{{ wikipedia }}</a></dd>
         </div>
-    </dl>
-    <dl>
         {% if x %}
         {% set x = contacts.x %}
         <div>
@@ -67,25 +58,20 @@
         </div>
         {% endif %}
     </dl>
-</div>
 {% endmacro contacts %}
 
 {% macro links(links) %}
-<style>
-  div.links {
-    margin: 1em;
-  }
-  div.links dl div {
-      display: grid;
-      grid-template-columns: 1fr 5fr;
-      column-gap: 1em;
-  }
-  dd::before {
-  content: '';
-  }
-</style>
-<div class="links">
-    <dl>
+    <style>
+        dl.link-list div {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 0.5em;
+        }
+        dl.link-list div dd::before {
+            content: '';
+        }
+    </style>
+    <dl class="link-list">
         {% if links.adviser %}
         {% set adviser = get_page(path = links.adviser[0] ~ '.md') %}
         <div>
@@ -102,30 +88,30 @@
         </div>
         {% endif %}
     </dl>
-</div>
 {% endmacro links %}
 
-{% macro photo(url) %}
-<style>
-div.photo {
-    background-color: aliceblue;
-    padding: 0.75em;
-}
-div.photo img {
-    width: 200px;
-    margin: 0em;
-}
-</style>
-<div class="photo">
-<img src="{{ url }}" alt="{{ page.title }}" />
-</div>
+{% macro photo(url, alt) %}
+    <style>
+        div.photo-bg {
+            background-color: aliceblue;
+            padding: 0.75em;
+            display: inline-block
+        }
+        div.photo-bg img {
+            width: 12em;
+            margin: 0em;
+        }
+    </style>
+    <div class="photo-bg">
+        <img src="{{ url }}" alt="{{ alt }}" />
+    </div>
 {% endmacro photo %}
 
 {% macro member(member) %}
-{% set person = get_page(path = 'person/' ~ member.person ~ '.md') %}
-<a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ person.description }}
+    {% set person = get_page(path = 'person/' ~ member.person ~ '.md') %}
+    <a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ person.description }}
 {% endmacro member %}
 
 {% macro link_person(page) %}
-<a href="{{ page.permalink }}">{{ page.title }}</a>, {{ page.description }}
+    <a href="{{ page.permalink }}">{{ page.title }}</a>, {{ page.description }}
 {% endmacro link_person %}

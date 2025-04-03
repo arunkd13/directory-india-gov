@@ -11,7 +11,7 @@
   }
 </style>
 <main>
-  {{ macros::photo(url=page.extra.photo) }}
+  {{ macros::photo(url=page.extra.photo, alt=page.title) }}
   <div>
     <h2>{{ page.title }}</h2>
     {{ macros::member(member = page.extra.head) }}
