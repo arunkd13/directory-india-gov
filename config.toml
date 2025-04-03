@@ -8,6 +8,7 @@ taxonomies = [
     {name = "adviser"},
     {name = "during_the_pleasure_of"},
     {name = "head"},
+    {name = "member_of"},
 ]
 
 # Whether to build a search index to be used later on by a JavaScript library
@@ -31,3 +32,4 @@ generate_feeds = false
 adviser = "Adviser"
 during_the_pleasure_of = "During the pleasure of"
 head = "Head"
+member_of = "Member of"
