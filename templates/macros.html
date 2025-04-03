@@ -123,9 +123,9 @@ div.photo img {
 
 {% macro member(member) %}
 {% set person = get_page(path = 'person/' ~ member.person ~ '.md') %}
-<a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ member.designation }}
+<a href="{{ get_url(path=person.path) }}">{{ person.title }}</a>, {{ person.description }}
 {% endmacro member %}
 
 {% macro link_person(page) %}
-<a href="{{ page.permalink }}">{{ page.title }}</a>, {{ page.extra.designation }}
-{% endmacro link_page %}
+<a href="{{ page.permalink }}">{{ page.title }}</a>, {{ page.description }}
+{% endmacro link_person %}

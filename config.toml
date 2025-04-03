@@ -13,6 +13,7 @@ taxonomies = [
 build_search_index = true
 [search]
 index_format = "elasticlunr_json"
+include_description = true
 include_path = true
 
 [markdown]

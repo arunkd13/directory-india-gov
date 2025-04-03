@@ -9,15 +9,18 @@
         font-weight: bold;
         margin-right: 1em;
     }
+    #searchResults {
+      list-style: none;
+    }
 </style>
 <div class="search">
     <div class="field">
         <label for="searchField">Search</label>
-        <input type="search" placeholder="Try entering 'droupadm'" id="searchField" />
+        <input type="search" placeholder="Try entering 'President of India'" id="searchField" />
     </div>
 
     <div>
-        <ul id="searchResults" />
+        <ol id="searchResults" />
     </div>
 
     <div id="noResultsFound" style="display: none">
@@ -53,9 +56,11 @@
         a.textContent = title;
         item.appendChild(a);
 
-        const p = document.createElement("p");
-        p.textContent = description;
-        el.appendChild(p);
+        if (description) {
+          const span = document.createElement("span");
+          span.textContent = ", " + description;
+          el.appendChild(span);
+        }
       });
     } else {
       noResultsEl.style.display = "block";

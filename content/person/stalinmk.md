@@ -1,10 +1,9 @@
 +++
 title = "M. K. Stalin"
+description = "Chief Minister of Tamil Nadu"
 
 [extra]
 photo = "https://upload.wikimedia.org/wikipedia/commons/f/fd/Hon_CM_Photo.jpg"
-designation = "Chief Minister of Tamil Nadu"
-department = "Government of Tamil Nadu"
 
 [extra.contacts]
 website = "http://mkstalin.in/"
