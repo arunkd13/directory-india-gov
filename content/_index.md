@@ -2,10 +2,10 @@
 title = "The Unofficial Indian Government Directory"
 +++
 
-This site provides the contact information for all staff and elected
-representatives of governments at various levels in India.
+This is an attempt at collating the contact information and power structure of
+the people who serve and govern India.
 
-This site is just starting will likely be under development for a long time
+We are just starting out and this site will likely be under development for a long time,
 before it becomes practically usable.
 
 {{ search() }}
