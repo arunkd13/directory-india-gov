@@ -4,6 +4,9 @@
 <script src="https://kit.fontawesome.com/ebcc86461e.js" crossorigin="anonymous"></script>
 
 <style>
+  div.maintenance {
+    grid-area: maintenance;
+  }
   div.photo {
     grid-area: photo;
   }
@@ -29,6 +32,7 @@
     column-gap: 1em;
     row-gap: 0.5em;
     grid-template-areas:
+      "maintenance"
       "title"
       "photo"
       "contacts"
@@ -39,16 +43,42 @@
   @media (min-width: 40em) {
     main {
       grid-template-columns: 1fr 3fr;
-      grid-template-rows: min-content min-content 1fr auto;
+      grid-template-rows: min-content min-content min-content 1fr auto;
       grid-template-areas:
+        "maintenance maintenance"
         "photo title"
         "photo contacts"
         "photo links"
         "backlinks backlinks";
     }
   }
+  .dl-single-line {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 0.5em;
+  }
 </style>
 <main>
+  <div class="maintenance">
+    {% if page.taxonomies is containing("maintenance") %}
+    <blockquote>
+      <dl class="dl-single-line">
+        <dt>🚧</dt>
+        <dd>
+          <p>
+            {% if page.taxonomies.maintenance is containing("incomplete") %}
+                This page is incomplete.
+            {% endif %}
+          </p>
+          <p>
+            Please consider sending a <a href="https://en.wikipedia.org/wiki/Fork_and_pull_model">PR</a> at
+            <a href="{{ config.extra.source }}">{{ config.extra.source | trim_start_matches(pat="https://") }}</a>
+          </p>
+        </dd>
+      </dl>
+    </blockquote>
+    {% endif %}
+  </div>
   <div class="photo">
     {{ macros::photo(url=page.extra.photo, alt=page.title) }}
   </div>
@@ -64,38 +94,26 @@
     <hr>
   </div>
   <div class="links">
-    <style>
-        dl.link-list div {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            column-gap: 0.5em;
-        }
-        dl.link-list div dd::before {
-            content: '';
-        }
-    </style>
-    <dl class="link-list">
+    <dl>
       {% for name, terms in page.taxonomies %}
-        <div>
-            <dt>{{ config.extra.link.labels[name] }} </dt>
-            <dd>{{ macros::link_term(term=terms[0]) }}</dd>
-        </div>
+        {% if config.extra.link.labels is containing(name) %}
+          {% set label = config.extra.link.labels[name] %}
+          <div class="dl-single-line">
+              <dt>{{ label }} </dt>
+              <dd>{{ macros::link_term(term=terms[0]) }}</dd>
+          </div>
+        {% endif %}
       {% endfor %}
     </dl>
   </div>
   <div class="backlinks">
-    <style>
-        dl.backlink-list dd::before {
-            content: '';
-        }
-    </style>
     {% set this = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
     <hr>
     <dl class="backlink-list">
-      {% for t in config.taxonomies %}
-        {% set term = get_taxonomy_term(kind=t.name, term=this, required=false) %}
+      {% for name, label in config.extra.backlink.labels %}
+        {% set term = get_taxonomy_term(kind=name, term=this, required=false) %}
         {% if term %}
-          <dt>{{ config.extra.backlink.labels[t.name] }}</dt>
+          <dt>{{ config.extra.backlink.labels[name] }}</dt>
           <dd>
             <ul>
               {% for item in term.pages %}

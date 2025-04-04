@@ -2,6 +2,7 @@
 title = "Union Council of Ministers"
 
 [taxonomies]
+maintenance = ["incomplete"]
 head = ["person/narendrm"]
 responsible_to = ["group/house-of-the-people"]
 

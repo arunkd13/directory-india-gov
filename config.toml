@@ -6,6 +6,7 @@ base_url = "https://arunkd13.github.io/directory-gov-in"
 compile_sass = false
 
 taxonomies = [
+    {name = "maintenance"},
     {name = "adviser"},
     {name = "during_the_pleasure_of"},
     {name = "head"},
@@ -29,6 +30,7 @@ generate_feeds = false
 
 [extra]
 # Put all your custom variables here
+source = "https://github.com/arunkd13/directory-gov-in"
 
 [extra.link.labels]
 adviser = "Adviser"

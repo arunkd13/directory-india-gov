@@ -2,6 +2,7 @@
 title = "Tamil Nadu Council of Ministers"
 
 [taxonomies]
+maintenance = ["incomplete"]
 head = ["person/stalinmk"]
 
 [extra]
