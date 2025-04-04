@@ -1,6 +1,4 @@
 {% macro contacts(contacts) %}
-    {% set wikipedia = contacts.wikipedia %}
-
     <style>
     dl.contact-list div {
         margin-bottom: 0.5em;
@@ -24,10 +22,13 @@
             <dd><a href="{{ website }}">{{ website }}</a></dd>
         </div>
         {% endif %}
+        {% if contacts.wikipedia %}
+        {% set wikipedia = contacts.wikipedia %}
         <div>
             <dt><i class="fa-brands fa-wikipedia-w"></i></dt>
             <dd><a href="https://en.wikipedia.org/wiki/{{ wikipedia }}">{{ wikipedia }}</a></dd>
         </div>
+	{% endif %}
         {% if contacts.x %}
         {% set x = contacts.x %}
         <div>

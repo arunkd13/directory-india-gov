@@ -5,6 +5,7 @@ title = "Tamil Nadu Council of Ministers"
 [taxonomies]
 maintenance = ["incomplete"]
 head = ["person/stalinmk"]
+responsible_to = ["group/tn-legislative-assembly"]
 
 [extra]
 photo = "https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg"

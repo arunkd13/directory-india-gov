@@ -80,7 +80,12 @@
     {% endif %}
   </div>
   <div class="photo">
-    {{ macros::photo(url=page.extra.photo, alt=page.title) }}
+    {% if page.extra is containing("photo") %}
+      {% set photo_url = page.extra.photo %}
+    {% else %}
+      {% set photo_url = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" %}
+    {% endif %}
+    {{ macros::photo(url=photo_url, alt=page.title) }}
   </div>
   <div class="title">
     <h2>{{ page.title }}</h2>
