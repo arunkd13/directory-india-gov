@@ -27,6 +27,7 @@
   main {
     display: grid;
     column-gap: 1em;
+    row-gap: 0.5em;
     grid-template-areas:
       "title"
       "photo"
@@ -60,6 +61,7 @@
   </div>
   <div class="contacts">
     {{ macros::contacts(contacts=page.extra.contacts) }}
+    <hr>
   </div>
   <div class="links">
     <style>
@@ -88,6 +90,7 @@
         }
     </style>
     {% set this = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
+    <hr>
     <dl class="backlink-list">
       {% for t in config.taxonomies %}
         {% set term = get_taxonomy_term(kind=t.name, term=this, required=false) %}

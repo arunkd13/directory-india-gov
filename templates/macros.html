@@ -81,8 +81,13 @@
 
 {% macro link_page(page) %}
     <a href="{{ page.permalink }}">{{ page.title }}</a>
-    {% if page.description %}
-     <span>, {{ page.description }}</span>
+    {%- set term_name = page.path | trim_start_matches(pat="/") %}
+    {%- if term_name is starting_with("person/") -%}
+    <span>, {{ page.description }}</span>
+    {% else %}
+        {% if page.description %}
+            ({{ page.description }})
+        {% endif %}
     {% endif %}
 {% endmacro link_page %}
 

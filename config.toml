@@ -10,6 +10,7 @@ taxonomies = [
     {name = "during_the_pleasure_of"},
     {name = "head"},
     {name = "member_of"},
+    {name = "responsible_to"}
 ]
 
 # Whether to build a search index to be used later on by a JavaScript library
@@ -34,9 +35,11 @@ adviser = "Adviser"
 during_the_pleasure_of = "During the pleasure of"
 head = "Head"
 member_of = "Member of"
+responsible_to = "Responsible to"
 
 [extra.backlink.labels]
 adviser = "Advises"
 during_the_pleasure_of = "During their pleasure"
 head = "Heads"
 member_of = "Members"
+responsible_to = "Under their responsibility"

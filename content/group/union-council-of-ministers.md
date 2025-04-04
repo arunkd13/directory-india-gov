@@ -3,6 +3,7 @@ title = "Union Council of Ministers"
 
 [taxonomies]
 head = ["person/narendrm"]
+responsible_to = ["group/house-of-the-people"]
 
 [extra]
 photo = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/200px-Emblem_of_India.svg.png"
