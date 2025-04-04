@@ -1,5 +1,4 @@
 {% macro contacts(contacts) %}
-    {% set website = contacts.website %}
     {% set wikipedia = contacts.wikipedia %}
 
     <style>
@@ -18,15 +17,18 @@
     }
     </style>
     <dl class="contact-list">
+        {% if contacts.website %}
+        {% set website = contacts.website %}
         <div>
             <dt><i class="fa-solid fa-globe"></i></dt>
             <dd><a href="{{ website }}">{{ website }}</a></dd>
         </div>
+        {% endif %}
         <div>
             <dt><i class="fa-brands fa-wikipedia-w"></i></dt>
             <dd><a href="https://en.wikipedia.org/wiki/{{ wikipedia }}">{{ wikipedia }}</a></dd>
         </div>
-        {% if x %}
+        {% if contacts.x %}
         {% set x = contacts.x %}
         <div>
             <dt><i class="fa-brands fa-x-twitter"></i></dt>
@@ -34,7 +36,7 @@
         </div>
         {% endif %}
 
-        {% if facebook %}
+        {% if contacts.facebook %}
         {% set facebook = contacts.facebook %}
         <div>
             <dt><i class="fa-brands fa-facebook"></i></dt>
@@ -42,7 +44,7 @@
         </div>
         {% endif %}
 
-        {% if instagram %}
+        {% if contacts.instagram %}
         {% set instagram = contacts.instagram %}
         <div>
             <dt><i class="fa-brands fa-instagram"></i></dt>
@@ -50,7 +52,7 @@
         </div>
         {% endif %}
 
-        {% if youtube %}
+        {% if contacts.youtube %}
         {% set youtube = contacts.youtube %}
         <div>
             <dt><i class="fa-brands fa-youtube"></i></dt>
