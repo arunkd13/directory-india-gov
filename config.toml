@@ -28,8 +28,14 @@ generate_feeds = false
 [extra]
 # Put all your custom variables here
 
-[extra.taxonomy_display_names]
+[extra.link.labels]
 adviser = "Adviser"
 during_the_pleasure_of = "During the pleasure of"
 head = "Head"
 member_of = "Member of"
+
+[extra.backlink.labels]
+adviser = "Advises"
+during_the_pleasure_of = "During their pleasure"
+head = "Heads"
+member_of = "Members"

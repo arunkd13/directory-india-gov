@@ -84,11 +84,6 @@
     {% endif %}
 {% endmacro link_page %}
 
-{% macro display_taxonomy_name(name) %}
-    {{ page.extra.taxonomy_display_names }}
-    {#  #}
-{% endmacro %}
-
 {% macro link_term(term) %}
     {% set page_path = term ~ '.md' %}
     {% set page = get_page(path = page_path) %}

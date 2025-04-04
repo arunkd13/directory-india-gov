@@ -75,23 +75,34 @@
     <dl class="link-list">
       {% for name, terms in page.taxonomies %}
         <div>
-            <dt>{{ config.extra.taxonomy_display_names[name] }} </dt>
+            <dt>{{ config.extra.link.labels[name] }} </dt>
             <dd>{{ macros::link_term(term=terms[0]) }}</dd>
         </div>
       {% endfor %}
     </dl>
   </div>
   <div class="backlinks">
-    {% set person = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
-    {% set term = get_taxonomy_term(kind="during_the_pleasure_of", term=person, required=false) %}
-    {% if term %}
-    <b>During their pleasure</b>
-    <ul>
-    {% for item in term.pages %}
-      <li>{{ macros::link_page(page=item) }}</li>
-    {% endfor %}
-    </ul>
-    {% endif %}
+    <style>
+        dl.backlink-list dd::before {
+            content: '';
+        }
+    </style>
+    {% set this = page.path | trim_end_matches(pat="/") | trim_start_matches(pat="/") %}
+    <dl class="backlink-list">
+      {% for t in config.taxonomies %}
+        {% set term = get_taxonomy_term(kind=t.name, term=this, required=false) %}
+        {% if term %}
+          <dt>{{ config.extra.backlink.labels[t.name] }}</dt>
+          <dd>
+            <ul>
+              {% for item in term.pages %}
+                <li>{{ macros::link_page(page=item) }}</li>
+              {% endfor %}
+            </ul>
+          </dd>
+        {% endif %}
+      {% endfor %}
+    </dl>
   </div>
 </main>
 {% endblock content %}
