@@ -64,7 +64,7 @@
     }
   };
 
-  fetch("/search_index.en.json").then((response) =>
+  fetch("{{ get_url(path="search_index.en.json") }}").then((response) =>
     response.json().then((rawIndex) => {
       window.searchIndex = elasticlunr.Index.load(rawIndex);
       document.getElementById("searchField").addEventListener("input", search);
