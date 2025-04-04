@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Acharya Devvrat"
 description = "Governor of Gujarat"
 

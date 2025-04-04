@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Arif Mohammad Khan"
 description = "Governor of Bihar"
 

@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "C. P. Radhakrishnan"
 description = "Governor of Maharashtra"
 

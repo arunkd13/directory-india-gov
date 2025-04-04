@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Anandiben Patel"
 description = "Governor of Uttar Pradesh"
 

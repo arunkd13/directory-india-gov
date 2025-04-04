@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Shiv Pratap Shukla"
 description = "Governor of Himachal Pradesh"
 

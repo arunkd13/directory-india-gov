@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "N. Indrasena Reddy"
 description = "Governor of Tripura"
 

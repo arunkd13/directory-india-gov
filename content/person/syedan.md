@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Syed Abdul Nazeer"
 description = "Governor of Andhra Pradesh"
 

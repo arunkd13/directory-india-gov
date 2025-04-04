@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "M. K. Stalin"
 description = "Chief Minister of Tamil Nadu"
 

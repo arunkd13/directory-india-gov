@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "La. Ganesan"
 description = "Governor of Nagaland"
 

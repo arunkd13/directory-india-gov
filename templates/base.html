@@ -12,8 +12,11 @@
       body {
         max-width: 900px;
       }
-      footer {
+      footer .attribution {
         text-align: center;
+      }
+      footer .updated {
+        font-size: small;
       }
       dd::before {
           content: '';
@@ -25,9 +28,12 @@
     {% block content %}{% endblock content %}
     <footer>
       <hr/>
-      Made with <span aria-label="Love" style="color: #f43f5e">&hearts;</span>
-      in Chennai by
-      <a href="https://arunkd13.github.io" target="_blank">arunkd13</a>
+      <div class="updated">{% block updated %}{% endblock updated %}</div>
+      <div class="attribution">
+        Made with <span aria-label="Love" style="color: #f43f5e">&hearts;</span>
+        in Chennai by
+        <a href="https://arunkd13.github.io" target="_blank">arunkd13</a>
+      </div>
     </footer>
   </body>
 </html>

@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "C. V. Ananda Bose"
 description = "Governor of West Bengal"
 

@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Kambhampati Hari Babu"
 description = "Governor of Odisha"
 

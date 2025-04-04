@@ -1,4 +1,5 @@
 +++
+updated = "2025-04-04"
 title = "Rajendra Arlekar"
 description = "Governor of Kerala"
 

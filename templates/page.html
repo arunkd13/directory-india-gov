@@ -127,3 +127,7 @@
   </div>
 </main>
 {% endblock content %}
+
+{% block updated %}
+  Last updated on {{ page.updated | date(format="%d %B, %Y")}}
+{% endblock updated %}
