@@ -32,6 +32,14 @@ generate_feeds = false
 # Put all your custom variables here
 source = "https://github.com/arunkd13/directory-gov-in"
 
+[extra.contact.icons]
+website = "fa-solid fa-globe"
+wikipedia = "fa-brands fa-wikipedia-w"
+x = "fa-brands fa-x-twitter"
+facebook = "fa-brands fa-facebook"
+instagram = "fa-brands fa-instagram"
+youtube = "fa-brands fa-youtube"
+
 [extra.link.labels]
 adviser = "Adviser"
 during_the_pleasure_of = "During the pleasure of"
