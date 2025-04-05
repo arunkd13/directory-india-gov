@@ -27,6 +27,10 @@
     grid-area: backlinks;
   }
 
+  div.sources {
+    grid-area: sources;
+  }
+
   main {
     display: grid;
     column-gap: 1em;
@@ -37,19 +41,21 @@
       "photo"
       "contacts"
       "links"
-      "backlinks";
+      "backlinks"
+      "sources";
     margin-bottom: 1em;
   }
   @media (min-width: 40em) {
     main {
       grid-template-columns: 1fr 3fr;
-      grid-template-rows: min-content min-content min-content 1fr auto;
+      grid-template-rows: min-content min-content min-content 1fr auto auto;
       grid-template-areas:
         "maintenance maintenance"
         "photo title"
         "photo contacts"
         "photo links"
-        "backlinks backlinks";
+        "backlinks backlinks"
+        "sources sources";
     }
   }
   .dl-single-line {
@@ -129,6 +135,19 @@
         {% endif %}
       {% endfor %}
     </dl>
+  </div>
+  <div class="sources">
+    {% if page.extra.sources %}
+    <hr>
+    <details>
+      <summary>Sources</summary>
+      <ul>
+        {% for url in page.extra.sources %}
+          <li><a href="{{ url }}">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
   </div>
 </main>
 {% endblock content %}
