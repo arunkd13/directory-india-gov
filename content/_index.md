@@ -1,5 +1,5 @@
 +++
-title = "The Unofficial Indian Government Directory"
+title = "The Unofficial Directory — Government of India"
 +++
 
 This is an attempt at collating the contact information and power structure of

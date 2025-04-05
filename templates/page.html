@@ -140,7 +140,11 @@
           {% set label = config.extra.link.labels[name] %}
           <div class="dl-single-line">
               <dt>{{ label }} </dt>
-              <dd>{{ macros::link_term(term=terms[0]) }}</dd>
+              <dd>
+                {% for term in terms %}
+                  {{ macros::link_term(term=term) }}<br>
+                {% endfor %}
+              </dd>
           </div>
         {% endif %}
       {% endfor %}

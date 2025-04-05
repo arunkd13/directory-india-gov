@@ -1,4 +1,6 @@
+# WARNING change the title in content/_index.md too
 title = "The Unofficial Directory — Government of India"
+
 # The URL the site will be built for
 base_url = "https://arunkd13.github.io/directory-gov-in"
 
