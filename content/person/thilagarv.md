@@ -9,7 +9,11 @@ member_of = ["group/gcc-council"]
 
 [extra]
 photo = "https://chennaicorporation.gov.in/gcc/council/council-address/photo/ward092.jpg"
+sources = [
+    "https://chennaicorporation.gov.in/gcc/council/council-address/"
+]
 
 [extra.contacts]
+phone = ["9941764934", "9941764934"]
 facebook = "MOGAPPAIR.K.V.THILAGAR"
 +++

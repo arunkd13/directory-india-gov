@@ -35,6 +35,7 @@ generate_feeds = false
 source = "https://github.com/arunkd13/directory-gov-in"
 
 [extra.contact.icons]
+phone = "fa-solid fa-phone"
 website = "fa-solid fa-globe"
 wikipedia = "fa-brands fa-wikipedia-w"
 x = "fa-brands fa-x-twitter"
