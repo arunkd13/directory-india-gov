@@ -4,7 +4,7 @@ title = "V. Thilagar"
 description = "Greater Chennai Corporation Councillor Ward 92"
 
 [taxonomies]
-maintenance = ["incomplete"]
+maintenance = []
 member_of = ["group/gcc-council"]
 
 [extra]
@@ -15,5 +15,6 @@ sources = [
 
 [extra.contacts]
 phone = ["9941764934", "9941764934"]
+email = "ward092@chennaicorporation.gov.in "
 facebook = "MOGAPPAIR.K.V.THILAGAR"
 +++

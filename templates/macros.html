@@ -1,8 +1,10 @@
 {% macro render_contact(key, value) %}
     {% if key == "phone" %}
         {% for item in value %}
-            {{ item }}<br>
+            <a href="tel:{{ item }}">{{ item }}</a><br>
         {% endfor %}
+    {% elif key == "email" %}
+        <a href="mailto:{{ value }}">{{ value }}</a>
     {% elif key == "website" %}
         {{ macros::render_url(url=value) }}
     {% elif key == "wikipedia" %}
