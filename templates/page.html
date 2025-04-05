@@ -102,19 +102,24 @@
   </div>
   <div class="contacts">
     <style>
-    dl.contact-list div {
-        margin-bottom: 0.5em;
-    }
-    dl.contact-list div dt {
-        display: inline;
-        margin-right: 0.5em;
-    }
-    dl.contact-list div dd {
-        display: inline;
-    }
-    dl.contact-list div dd::before {
-        content: '';
-    }
+      dl.contact-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.5em;
+      }
+      dl.contact-list div {
+          margin-bottom: 0.5em;
+      }
+      dl.contact-list div dt {
+          display: inline;
+          margin-right: 0.5em;
+      }
+      dl.contact-list div dd {
+          display: inline;
+      }
+      dl.contact-list div dd::before {
+          content: '';
+      }
     </style>
     <dl class="contact-list">
       {% if page.extra.contacts %}
