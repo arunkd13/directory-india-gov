@@ -1,0 +1,7 @@
+curl https://chennaicorporation.gov.in/gcc/council/council-address/
+div.tabcontent div.row div.row
+  div.who-details .who-is-subtitle
+  div.who-details p
+  div.who-details div.who-details p
+  div.who-details div.who-details p + p
+  div img.user-pic | htmlq -a src img

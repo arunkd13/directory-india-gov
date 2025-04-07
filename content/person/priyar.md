@@ -1,5 +1,5 @@
 +++
-updated = "2025-04-04"
+updated = "2025-04-07"
 title = "Priya Rajan"
 description = "Mayor of Chennai"
 
@@ -14,5 +14,13 @@ sources = [
 ]
 
 [extra.contacts]
+phone = [
+    "9445467074",
+    "044-25619300",
+    "044-25384438",
+    "044-25619555",
+    "044-25303600"
+]
+email = "ward074@chennaicorporation.gov.in"
 wikipedia = "Priya_Rajan"
 +++

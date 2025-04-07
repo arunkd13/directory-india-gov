@@ -14,5 +14,11 @@ sources = [
 ]
 
 [extra.contacts]
+phone = [
+    "9445467169",
+    "044-25619210",
+    "044-25382979"
+]
+email = "ward169@chennaicorporation.gov.in"
 instagram = "saidai.mu.mageshkumaar"
 +++
