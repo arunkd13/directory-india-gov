@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Unofficial Directory — Government of India</title>
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+  </head>
+  <body>
+    <style>
+      body {
+        max-width: 900px;
+      }
+      footer .attribution {
+        text-align: center;
+      }
+      footer .updated {
+        font-size: small;
+      }
+      dd::before {
+          content: '';
+      }
+    </style>
+    <header>
+        <b><a href="https://arunkd13.github.io/directory-gov-in">The Unofficial Directory — Government of India</a></b>
+    </header>
+    
+ <p>This is an attempt at collating the contact information and power structure of
+the people who serve and govern India.</p>
+<p>We are just starting out and this site will likely be under development for a long time,
+before it becomes practically usable. If you are interested in joining, checkout
+the <a href="https://github.com/arunkd13/directory-gov-in">project source code</a>.</p>
+<script src="https://arunkd13.github.io/directory-gov-in/elasticlunr.min.js"></script>
+<style>
+    div.search {
+        margin: 2em;
+        display: grid;
+        place-items: center;
+    }
+    div.field label {
+        font-weight: bold;
+        margin-right: 1em;
+    }
+</style>
+<div class="search">
+    <div class="field">
+        <label for="searchField">Search</label>
+        <input type="search" placeholder="Try entering 'President of India'" id="searchField" />
+    </div>
+
+    <div>
+        <ol id="searchResults" />
+    </div>
+
+    <div id="noResultsFound" style="display: none">
+        <p>No results found.</p>
+    </div>
+</div>
+<script>
+(function (window, document) {
+  "use strict";
+
+  const search = (e) => {
+    const results = window.searchIndex.search(e.target.value, {
+      bool: "OR",
+      expand: true,
+    });
+
+    const resEl = document.getElementById("searchResults");
+    const noResultsEl = document.getElementById("noResultsFound");
+
+    resEl.innerHTML = "";
+    if (results) {
+      noResultsEl.style.display = "none";
+      results.map((r) => {
+        const { id, title, description } = r.doc;
+        const el = document.createElement("li");
+        resEl.appendChild(el);
+
+        const item = document.createElement("item");
+        el.appendChild(item);
+
+        const a = document.createElement("a");
+        a.setAttribute("href", id);
+        a.textContent = title;
+        item.appendChild(a);
+
+        if (description) {
+          const span = document.createElement("span");
+          span.textContent = " | " + description;
+          el.appendChild(span);
+        }
+      });
+    } else {
+      noResultsEl.style.display = "block";
+    }
+  };
+
+  fetch("https://arunkd13.github.io/directory-gov-in/search_index.en.json").then((response) =>
+    response.json().then((rawIndex) => {
+      window.searchIndex = elasticlunr.Index.load(rawIndex);
+      document.getElementById("searchField").addEventListener("input", search);
+    })
+  );
+})(window, document);
+</script>
+
+    <footer>
+      <hr/>
+      <div class="updated"></div>
+      <div class="attribution">
+        Made with <span aria-label="Love" style="color: #f43f5e">&hearts;</span>
+        in Chennai by
+        <a href="https://arunkd13.github.io" target="_blank">arunkd13</a>
+      </div>
+    </footer>
+  </body>
+</html>
